@@ -1,0 +1,3 @@
+gcc -c ssw.c -o ssw.o -lSDL2 &>/dev/null
+gcc -c bezier.c -o bezier.o &>/dev/null
+gcc ssw.o bezier.o snake.c -o snake -lSDL2 &>/dev/null

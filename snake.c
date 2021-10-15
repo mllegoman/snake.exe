@@ -1,10 +1,9 @@
-#include <stdlib.h>
-#include <unistd.h>
 #include <stdio.h>
+#include <Windows.h>
 #include "ssw.h"
 #include "bezier.h"
  
-int main() {
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow) {
 int seed, add;
 seed = (int)&add;
 srand(seed);
@@ -23,14 +22,15 @@ xsnake[2] = 0;
 ysnake[2] = 0;
 char xp = rand()%38 + 1;
 char yp = rand()%28 + 1;
-XI(0, "Snek", "Snek", 400, 300, 0, 0, 0);
+
+XI(0, "Snek", "Snek", 400, 300, 50, 50, 0);
 Eve(&c, 0);
 RegionFill(0, 0, WW(0), WH(0), RGB(0, 0, 0), 0);
 
 	while (1) {
 
 	RegionFill(0, 0, WW(0), WH(0), RGB(0, 0, 0), 0);
-	usleep(100000);	
+	SleepEx(100, 0);
 	secsize = WW(0)/40;
 	RegionScarf(secsize, secsize, WW(0)-2*secsize, WW(0)*3/4-2*secsize, RGB(255, 255, 255), 0);
 
@@ -139,8 +139,5 @@ RegionFill(0, 0, WW(0), WH(0), RGB(0, 0, 0), 0);
 	}
 gg:
 Clean(0);
-printf("In this world, nothing can be said to be certain... \n");
-usleep(1000000);
-printf("Except Death and Taxes\n");
 XX(0);
 }

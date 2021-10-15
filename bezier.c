@@ -24,8 +24,8 @@ return ((n>>i)+((n>>i)&1))<<i;
 }
 
 void drawcurve(unsigned long rgb, uint *x, uint *y, uchar n, int sec, int size, char win) {
-float xslice[n + 1];
-float yslice[n + 1];
+float xslice[255]; // static array sizes
+float yslice[255];
 float t, tc, totx, toty;
 tc = (float)1.0/adjpow(size);
 int xc;
